@@ -38,46 +38,49 @@ function crearCliente(id, nombre, apellido, telefono, email, direccion, provinci
     this.provincia = provincia
 }
 
-//Creacion de objetos
-const articulo1 = new crearArticulo(6636359824237064 , "servidor","2028R", "supermicro",  "exxa", "Buenos Aires", "26 de octubre de 2022", 1669726, 2);
-const articulo2 = new crearArticulo(6629359824767064 , "servidor", "2028R", "supermicro",  "exxa",  "Corrientes", "26 de octubre de 2022", 1669726, 2);
-const articulo3 = new crearArticulo(0936359824767064 , "servidor", "2028R", "supermicro",  "exxa", "Buenos aires", "26 de octubre de 2022", 1669726, 2);
-const articulo4 = new crearArticulo(6636359924767012 , "servidor", "2028R", "supermicro",  "exxa", "Entre Rios", "26 de octubre de 2022", 1669726, 2);
-
-
-const cliente1 = new crearCliente(6636359929277012,"Javier", "Rodriguez", 1133654367, "javier.rodriguez@test.com", "Congreso 2342", "Buenos aires" );
-const cliente2 = new crearCliente(6636359924762862,"Juan", "Perez", 1144356789, "juan.perez@test.com", "Av. San juan 675", "Corrientes" );
-const cliente3 = new crearCliente(6636359924760212,"Pedro", "Solis", 1133658567, "pedro.solis@test.com", "San luis 6587", "Misiones" );
-const cliente4 = new crearCliente(6124359924767012,"Lucas", "Lopez", 1133659457, "lucas.lopez@test.com", "Hipolito Yrigoyen 5233", "San Luis" );
-const cliente5 = new crearCliente(8271652876783923,"Sofia", "Torres", 1133434167, "sofia.torres@test.com", "Cabildo 287", "Cordoba" );
-const cliente6 = new crearCliente(6827892768154687,"Javier", "Fernandez", 1233654367, "javier.fernandez@test.com", "Congreso 2342", "Buenos aires" );
-const cliente7 = new crearCliente(1231231231235457,"Nicolas", "Perez", 1144354789, "nicolas.perez@test.com", "Av. San juan 6455", "Corrientes" );
-const cliente8 = new crearCliente(1254534534689238,"Pedro", "Lopez", 1133650967, "pedro.lopez@test.com", "San luis 6587", "Misiones" );
-const cliente9 = new crearCliente(1235634532234129,"Antonio", "Maydana", 1763659457, "antonio.maydana@test.com", "Hipolito Yrigoyen 523", "Entre rios" );
-const cliente10 = new crearCliente(112312352121230,"Sofia", "Yuber", 1137634167, "sofia.yuber@test.com", "Cabildo 2307", "Cordoba" );
-
 //Creacion de Arrays
 let articulos = []
 let clientes = []
-let ventas = [1, 2, 3, 4]
+let modelos = []
+let cantidad = []
+let categoria = []
 
 //Guardar clientes en el storage
 if(localStorage.getItem("clientes")){
     clientes = JSON.parse(localStorage.getItem("clientes"))
 }else{
-clientes.push(cliente1, cliente2, cliente3, cliente4, cliente5, cliente6, cliente7, cliente8, cliente9, cliente10)
+//clientes.push(cliente1, cliente2, cliente3, cliente4, cliente5, cliente6, cliente7, cliente8, cliente9, cliente10)
 localStorage.setItem("clientes", JSON.stringify(clientes))
-console.log("se guardaron por primera vez los clientes en el storage")
+console.log("Se inicio sesion por primera vez correctamente, gracias por usar mi aplicacion :)")
 }
 
 //Guardar articulos en el storage
 if(localStorage.getItem("articulos")){
     articulos = JSON.parse(localStorage.getItem("articulos"))
 }else{
-articulos.push(articulo1, articulo2, articulo3, articulo4)
+//articulos.push(articulo1, articulo2, articulo3, articulo4)
 localStorage.setItem("articulos", JSON.stringify(articulos))
-console.log("se guardaron por primera vez los articulos en el storage")
+}
 
+//Guardar modelos en el storage
+if(localStorage.getItem("modelos")){
+    modelos = JSON.parse(localStorage.getItem("modelos"))
+}else{
+localStorage.setItem("modelos", JSON.stringify(modelos))
+}
+
+//Guardar cantidad en el storage
+if(localStorage.getItem("cantidad")){
+    cantidad = JSON.parse(localStorage.getItem("cantidad"))
+}else{
+localStorage.setItem("cantidad", JSON.stringify(modelos))
+}
+
+//Guardar categoria en el storage
+if(localStorage.getItem("categoria")){
+    categoria = JSON.parse(localStorage.getItem("categoria"))
+}else{
+localStorage.setItem("categoria", JSON.stringify(categoria))
 }
 
 //modal de registro de eventos
@@ -113,7 +116,6 @@ articulos.forEach((valor)=>{
 let divCapital = document.getElementById("capital")
 divCapital.innerHTML = `$${capital}`
 
-
 //funcion para ver los dashboard
 
 function verDashboard(){
@@ -131,27 +133,6 @@ btnMostrarDashboard.addEventListener("click", ()=>{
     divModal.insertAdjacentHTML('afterend', `<p>${fechaCompleta} - Se mostro correctamente los dashboard</p>`);
 })
 
-//funcion para ver el formulario de nueva venta
-
-function nuevaVenta(){
-    divClientes.innerHTML = ""
-    divProductos.innerHTML = ""
-    document.getElementById("nuevoProducto").style.display = "none";
-    document.getElementById("nuevoCliente").style.display = "none";
-    document.getElementById("main").style.display = "none";
-    document.getElementById("nuevaVenta").style.display = "block";
-
-}
-
-
-let btnMostrarFormularioVenta = document.getElementById("botonVerFormularioVenta")
-btnMostrarFormularioVenta.addEventListener("click", ()=>{
-    nuevaVenta()
-    divModal.insertAdjacentHTML('afterend', `<p>${fechaCompleta} - Se mostro correctamente el formulario para agregar nueva venta</p>`);
-})
-
-
-
 //Funcion para ver el formulario que agrega nuevo cliente
 
 function nuevoCliente(){
@@ -159,7 +140,6 @@ function nuevoCliente(){
     divProductos.innerHTML = ""
     document.getElementById("nuevoProducto").style.display = "none";
     document.getElementById("main").style.display = "none";
-    document.getElementById("nuevaVenta").style.display = "none";
     document.getElementById("nuevoCliente").style.display = "block";
 }
 
@@ -177,7 +157,6 @@ function nuevoProducto(){
     divProductos.innerHTML = ""
     document.getElementById("nuevoCliente").style.display = "none";
     document.getElementById("main").style.display = "none";
-    document.getElementById("nuevaVenta").style.display = "none";
     document.getElementById("nuevoProducto").style.display = "block";
 }
 
@@ -198,7 +177,6 @@ function mostrarClientes(array){
     document.getElementById("nuevoProducto").style.display = "none";
     document.getElementById("nuevoCliente").style.display = "none";
     document.getElementById("main").style.display = "none";
-    document.getElementById("nuevaVenta").style.display = "none";
     array.forEach((cliente)=>{
        let nuevoCliente = document.createElement("div")
            nuevoCliente.innerHTML = `<table class="table table-hover">
@@ -241,7 +219,6 @@ function mostrarProductos(array){
     document.getElementById("nuevoProducto").style.display = "none";
     document.getElementById("nuevoCliente").style.display = "none";
     document.getElementById("main").style.display = "none";
-    document.getElementById("nuevaVenta").style.display = "none";
     array.forEach((articulo)=>{
        let nuevoArticulo = document.createElement("div")
            nuevoArticulo.innerHTML = `<table class="table table-hover">
@@ -264,7 +241,6 @@ function mostrarProductos(array){
     array.forEach((articulo, indice)=>{
         document.getElementById(`botonEliminar${articulo.id}`).addEventListener("click",()=>{
                 array.splice(indice, 1)
-                console.log(array)
                 localStorage.setItem("articulos", JSON.stringify(array))
                 mostrarProductos(array)
         })
@@ -325,7 +301,16 @@ function agregarArticulo(array){
     let inputPrecioArticulo= document.getElementById("inputPrecioArticulo")
     let inputCantidadArticulo = document.getElementById("inputCantidadArticulo")
     let articuloCreado = new crearArticulo(Math.random()*10000000000000000, inputCategoriaArticulo.value, inputModeloArticulo.value, inputFabricanteArticulo.value, inputProveedorArticulo.value, inputLugarArticulo.value, fecha, inputPrecioArticulo.value, Number(inputCantidadArticulo.value))
+    let modeloCharts = inputModeloArticulo.value
+    let cantidadCharts = inputCantidadArticulo.value
+    let categoriaCharts = inputCategoriaArticulo.value
+    modelos.push(modeloCharts)
+    cantidad.push(cantidadCharts)
+    categoria.push(categoriaCharts)
     array.push(articuloCreado)
+    localStorage.setItem("modelos", JSON.stringify(modelos))
+    localStorage.setItem("cantidad", JSON.stringify(cantidad))
+    localStorage.setItem("categoria", JSON.stringify(categoria))
     localStorage.setItem("articulos", JSON.stringify(array))
     //resetear formulario
     inputModeloArticulo.value = ""
@@ -350,22 +335,16 @@ btnCrearArticulo.addEventListener("click",()=>{
     }
 })
 
-
-//test
-
-const days = ['lunes','martes','miercoles']
-const costo = ['12','23','41']
-
 // graficos charts (todavia no funcionan)
 
 const ctx = document.getElementById('lineChart').getContext('2d');
 const myChart1 = new Chart(ctx, {
     type: 'line',
     data: {
-        labels: days,
+        labels: modelos,
         datasets: [{
             label: '# of Votes',
-            data: costo,
+            data: cantidad,
             backgroundColor: [
                 'rgb(85, 85, 85, 1)'
             ],
@@ -384,10 +363,10 @@ const cty = document.getElementById('doughnut').getContext('2d');
 const myChart2 = new Chart(cty, {
     type: 'doughnut',
     data: {
-        labels: [`servidores`, 'Blue', 'Yellow', 'Green'],
+        labels: categoria,
         datasets: [{
             label: 'Employes',
-            data: [12, 19, 3, 5],
+            data: cantidad,
             backgroundColor: [
                 'rgba(41, 155, 99, 1)',
                 'rgba(54, 162, 235, 1)',

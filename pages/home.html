@@ -16,14 +16,10 @@
             <div class="logo">
                 <h4>Administrador web</h4>
             </div>
-            <div class="buscar">
-                <input type="text" id="buscar" placeholder="Buscar">
-                <label for="buscar"><i class="fas fa-search"></i></label>
-            </div>
             <div>
             <!-- Button trigger modal -->
-            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-                <i class="fa-solid fa-bell"></i>
+            <button type="button" class="btn btn-primary btnLogs" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                <i class="fa-solid fa-triangle-exclamation"></i>
             </button>
             </div>
             <div class="user">
@@ -36,18 +32,6 @@
                     <a id="botonVerDashboard" href="#">
                         <i class="fa-sharp fa-solid fa-chart-simple"></i>
                         <div>Dashboard</div>
-                    </a>
-                </li>
-                <li>
-                    <a id="botonVerFormularioVenta" href="#">
-                        <i class="fa-sharp fa-solid fa-people-carry-box"></i>
-                        <div>Nueva venta</div>
-                    </a>
-                </li>
-                <li>
-                    <a id="botonVerDashboard" href="#">
-                        <i class="fa-solid fa-database"></i>
-                        <div>Ver ventas</div>
                     </a>
                 </li>
                 <li>
@@ -123,11 +107,11 @@
             </div>
             <div class="charts">
                 <div class="chart">
-                    <h2>Articulos en stock</h2>
+                    <h2>Modelos de articulos</h2>
                     <canvas id="lineChart"></canvas>
                 </div>
                 <div class="chart" id="doughnut-chart">
-                    <h2>Categorias</h2>
+                    <h2>Categorias de articulos</h2>
                     <canvas id="doughnut"></canvas>
                 </div>
             </div>
@@ -139,40 +123,18 @@
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h1 class="modal-title fs-5" id="staticBackdropLabel">Registro de eventos</h1>
+          <h1 class="modal-title fs-5" id="staticBackdropLabel">Logs de eventos</h1>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body" id="modal-body">
         </div>
         <div class="modal-footer">
+            <p>Se perderan los logs una vez que recargue la pagina</p>
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
         </div>
       </div>
     </div>
   </div>
-    </div>
-    <!-- Formulario para generar nueva venta -->
-    <div id="nuevaVenta" class="container">
-        <h4>Nueva venta</h4>
-    <select class="form-select my-3 selectorCliente" aria-label="Default select example">
-        <option selected>Seleccione el cliente</option>
-        <option value="1">One</option>
-        <option value="2">Two</option>
-        <option value="3">Three</option>
-      </select>
-      <select class="form-select my-3" aria-label="Default select example">
-        <option selected>Seleccione el articulo</option>
-        <option value="1">One</option>
-        <option value="2">Two</option>
-        <option value="3">Three</option>
-      </select>
-      <select class="form-select my-3" aria-label="Default select example">
-        <option selected>Seleccione la cantidad</option>
-        <option value="1">One</option>
-        <option value="2">Two</option>
-        <option value="3">Three</option>
-      </select>
-      <button type="button" class="btn btn-primary">Generar venta</button>
     </div>
     <!-- Formulario para agregar clientes -->
     <div id="nuevoCliente" class="col-5 container">

@@ -282,9 +282,3 @@ footer p{
 #main{
     display: block;
 }
-
-#nuevaVenta{
-    display: none;
-    padding-top: 90px;
-    padding-left: 260px;
-}
